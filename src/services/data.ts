@@ -22,7 +22,7 @@ export const GetData = async () => {
 export const UpdateData = async ({ id, name, lastname, email, phone }: DataProps): Promise<any> => {
   try {
     const formData = { name, lastname, email, phone };
-    const { data } = await api.put(`/Users${id}`, formData)
+    const { data } = await api.put(`/Users/${id}`, formData)
     return data;
   } catch (error) {
     return console.log(error);

@@ -14,7 +14,9 @@ export const GetData = async () => {
     const { data } = await api.get<DataProps[] | []>(`/Users`)
     return data;
   } catch (error) {
-    return console.log(error);
+    if (error.response) {
+      return error.response;
+    }
   }
 }
 
@@ -25,6 +27,8 @@ export const UpdateData = async ({ id, name, lastname, email, phone }: DataProps
     const { data } = await api.put(`/Users/${id}`, formData)
     return data;
   } catch (error) {
-    return console.log(error);
+    if (error.response) {
+      return error.response;
+    }
   }
 }

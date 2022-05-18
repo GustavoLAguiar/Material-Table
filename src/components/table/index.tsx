@@ -44,7 +44,7 @@ const Table = () => {
       <Styles.MaterialConfig>
         <MaterialTable
           title="Exemplo de consulta de dados da API"
-          icons={TableIcons}
+          icons={TableIcons()}
           columns={columns}
           data={data}
           options={{

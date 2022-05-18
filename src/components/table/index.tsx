@@ -27,6 +27,7 @@ const Table = () => {
   ])
 
   const [data, setData] = useState<DataProps[] | []>([]);
+  const [icon, setIcon] = useState({});
 
   // Função para obter dados da API
   const loadData = async () => {
@@ -34,9 +35,16 @@ const Table = () => {
     setData(response ?? []);
   }
 
+  // Função para obter icones da tabela
+  const loadIcon = async () => {
+    const response = await TableIcons();;
+    setIcon(response ?? {});
+  }
+
   // Effect para executar a consulta de dados na API assim que a página for carregada
   useEffect(() => {
     void loadData();
+    void loadIcon();
   }, []);
 
   return (
@@ -44,7 +52,7 @@ const Table = () => {
       <Styles.MaterialConfig>
         <MaterialTable
           title="Exemplo de consulta de dados da API"
-          icons={TableIcons()}
+          icons={icon}
           columns={columns}
           data={data}
           options={{

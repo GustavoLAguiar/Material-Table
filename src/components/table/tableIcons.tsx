@@ -25,3 +25,5 @@ export default function TableIcons() {
 
   return icons;
 };
+
+TableIcons.displayName = 'TableIcons';
